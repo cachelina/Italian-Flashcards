@@ -1,0 +1,60 @@
+body {
+  font-family: garamond;
+  background-color: aliceblue;
+}
+#title {
+  text-align: center;
+  font-style: italic;
+  margin: 120px 300px 30px 300px;
+}
+
+.flashcard-screen {
+  text-align: center;
+  margin: 50px 300px 30px 300px;
+  perspective: 600px;
+  width: 300px;
+  height: 150px;
+  backface-visibility: hidden;
+}
+
+#term {
+  border: solid 5px powderblue;
+  background-color: #ade6e6;
+  border-radius: 50px;
+  backface-visibility: hidden;
+  position: absolute;
+  width: 300px;
+  height: 150px;
+}
+
+#translation {
+  border: solid 5px powderblue;
+  background-color: powderblue;
+  border-radius: 50px;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  position: absolute;
+
+}
+
+.flip-container {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transform-origin: center right;
+  transition: transform 1s;
+}
+
+.flip-card {
+  transform: translateX(-100%) rotateY(180deg);
+}
+
+.card-face {
+  height: 100%;
+  width: 100%;
+}
+
+.buttons {
+  margin-top: 100px;
+}
