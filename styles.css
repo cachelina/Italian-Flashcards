@@ -15,25 +15,32 @@ body {
   width: 300px;
   height: 150px;
   backface-visibility: hidden;
+  text-align: center;
+  text-transform: capitalize;
+  font-family: Verdana;
+  
 }
 
 #term {
-  border: solid 5px powderblue;
-  background-color: #ade6e6;
+  border: solid 5px white;
+  background-color: #00CED1;
+  color: white;
   border-radius: 50px;
   backface-visibility: hidden;
   position: absolute;
   width: 300px;
-  height: 150px;
+  height: 330px;
 }
 
 #translation {
-  border: solid 5px powderblue;
-  background-color: powderblue;
+  border: solid 5px #00CED1;
+  background-color: white;
   border-radius: 50px;
   transform: rotateY(180deg);
   backface-visibility: hidden;
   position: absolute;
+  width: 300px;
+  height: 330px;
 
 }
 
@@ -56,5 +63,5 @@ body {
 }
 
 .buttons {
-  margin-top: 100px;
+  margin-top: 230px;
 }

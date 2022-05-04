@@ -18,10 +18,7 @@ let nextButton = document.getElementById('next-button')
 let term = document.getElementById('term')
 let flipContainer = document.getElementsByClassName('flip-container')[0]
 
-flipContainer.addEventListener('click', (e) => { 
-flipContainer.classList.toggle("flip-card")
-})
-
+let italianTranslation = document.getElementById("translation")
 
 let englishTranslations = () => Object.keys(words)
 
@@ -33,6 +30,7 @@ let numberIncorrectScore = 0;
 let requiredToWinScore = Object.keys(words).length;
 let currentWord = '';
 let currentAnswer = ''; 
+let incorrectWords = [];
 
 
 function getRandomWord() {
@@ -57,15 +55,6 @@ const generateNewWord = () => {
 
 const wonGame = () => numberCorrectScore === requiredToWinScore;
 
-
-answerButton.addEventListener('click', e => {
-  for (const word in words) {
-    if (currentWord === word) {
-      term.innerHTML = `<h3>${words[word]}</h3>`
-    }
-  }
-})
-
 const removeWord = () => {
   let currentTerm = term.textContent
   let showingWord = false; 
@@ -75,20 +64,43 @@ const removeWord = () => {
     showingTranslation = currentTerm === words[word]
     if (showingWord || showingTranslation) {
       delete words[word]
+    } 
+  }
+}
+
+
+const showItalianTranslation = () => {
+  for (const word in words) {
+    if (currentWord === word) {
+      italianTranslation.innerHTML = `<h3>${words[word]}</h3>`
+
     }
   }
 }
 
+const currentWrongWord = () => {
+  let currentWrongWord = term.textContent
+  incorrectWords.push(currentWrongWord)
+  console.log(currentWord)
+}
+
+flipContainer.addEventListener('click', (e) => {
+  if (flipContainer.classList.toggle("flip-card")) {
+    showItalianTranslation()
+  }
+})
+
 const setWinningMessage = () => {
-  const winningMsg = `Congratulations you won with a score of correct: ${numberCorrectScore} and incorrect: ${numberIncorrectScore}`;
+  const winningMsg = `Congratulations you got the top score of: ${numberCorrectScore} and incorrect: ${numberIncorrectScore}. The words you got wrong were: ${incorrectWords} `;
   setWordContent(winningMsg)
 }
 
-const showWinningMessage = () => alert('you got them all right, refresh and start new Game!');
+const showWinningMessage = () => alert('The game will restart automatically!');
 
 const reloadGame = () => {
-  alert `the game will restart`
-  window.location.reload(true)
+  setTimeout(function () {
+    window.location.reload(true)
+  }, 15000)
 }
 
 correctButton.addEventListener('click', e => {
@@ -107,13 +119,16 @@ correctButton.addEventListener('click', e => {
   removeWord();
 })
 
+
+
 wrongButton.addEventListener('click', e => {
   if (wonGame()) {
     showWinningMessage()
     reloadGame();
     return null
-  }
-  numberIncorrectScore += 1
+  } 
+  numberIncorrectScore += 1;
+  currentWrongWord();
 })
 
 nextButton.addEventListener('click', e => {
@@ -130,8 +145,5 @@ nextButton.addEventListener('click', e => {
 window.addEventListener('DOMContentLoaded', (e) => {
   initializeGame();
 })
-
-
-
-////restart game without hitting refresh
 //keep track of words they got wrong
+//if you click correct automatically goes to the next one. 
