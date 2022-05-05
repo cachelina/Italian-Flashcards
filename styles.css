@@ -1,9 +1,9 @@
 body {
-  font-family: garamond;
   background-color: aliceblue;
 }
 #title {
   text-align: center;
+  font-family: garamond;
   font-style: italic;
   margin: 120px 300px 30px 300px;
 }
@@ -18,7 +18,7 @@ body {
   text-align: center;
   text-transform: capitalize;
   font-family: Verdana;
-  
+  margin-left: 440px;
 }
 
 #term {
@@ -30,6 +30,7 @@ body {
   position: absolute;
   width: 300px;
   height: 330px;
+  padding-top: 10px;
 }
 
 #translation {
@@ -41,6 +42,7 @@ body {
   position: absolute;
   width: 300px;
   height: 330px;
+  padding-top: 10px;
 
 }
 
@@ -64,4 +66,26 @@ body {
 
 .buttons {
   margin-top: 230px;
+  border: none;
+  border-width: 1px;
+}
+
+.buttons:hoover {
+  background-position: right center;
+}
+
+#correct-button {
+ border-style: solid white;
+ padding: 5px 4px;
+ cursor: pointer;
+ color: white;
+ background-color: #00CED1;
+}
+
+#wrong-button {
+  border-style: solid white;
+  padding: 5px 4px;
+  cursor: pointer; 
+  color: white;
+  background-color: #00CED1;
 }

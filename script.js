@@ -17,7 +17,6 @@ let wrongButton = document.getElementById('wrong-button')
 let nextButton = document.getElementById('next-button')
 let term = document.getElementById('term')
 let flipContainer = document.getElementsByClassName('flip-container')[0]
-
 let italianTranslation = document.getElementById("translation")
 
 let englishTranslations = () => Object.keys(words)
@@ -31,7 +30,7 @@ let requiredToWinScore = Object.keys(words).length;
 let currentWord = '';
 let currentAnswer = ''; 
 let incorrectWords = [];
-
+let userPercentageScores = [];
 
 function getRandomWord() {
   if (Object.keys(words).length === 0) {
@@ -78,6 +77,10 @@ const showItalianTranslation = () => {
   }
 }
 
+let percentage = () => {
+  return (parseInt(requiredToWinScore - numberIncorrectScore) * 10) && (parseInt(requiredToWinScore - numberIncorrectScore) * 10)
+}
+
 const currentWrongWord = () => {
   let currentWrongWord = term.textContent
   incorrectWords.push(currentWrongWord)
@@ -91,7 +94,20 @@ flipContainer.addEventListener('click', (e) => {
 })
 
 const setWinningMessage = () => {
-  const winningMsg = `Congratulations you got the top score of: ${numberCorrectScore} and incorrect: ${numberIncorrectScore}. The words you got wrong were: ${incorrectWords} `;
+ let scores = percentage();
+ let cachedScores = localStorage.getItem("scores")
+  if (cachedScores === null) {
+    let arr = JSON.stringify([scores])
+    localStorage.setItem("scores", arr)
+  } else {
+    cachedScores = JSON.parse(cachedScores)
+    cachedScores.push(scores)
+    let arr = JSON.stringify(cachedScores)
+    localStorage.setItem('scores', arr)
+    // let allCachedScores = localStorage.getItem('scores')
+  }
+  console.log(cachedScores)
+  const winningMsg = `Congratulations you got the top score of: ${numberCorrectScore} and incorrect: ${numberIncorrectScore}. The words you got wrong were: ${incorrectWords}. Your score is ${scores}`;
   setWordContent(winningMsg)
 }
 
@@ -117,33 +133,33 @@ correctButton.addEventListener('click', e => {
     return null
   }
   removeWord();
+  generateNewWord();
 })
-
-
 
 wrongButton.addEventListener('click', e => {
   if (wonGame()) {
     showWinningMessage()
     reloadGame();
     return null
-  } 
-  numberIncorrectScore += 1;
-  currentWrongWord();
-})
-
-nextButton.addEventListener('click', e => {
-  if (wonGame()) {
-    showWinningMessage();
-    reloadGame();
-    return null 
-  } 
-  else {
+  } else {
+    numberIncorrectScore += 1;
+    currentWrongWord();
     generateNewWord();
   }
 })
 
+
+
 window.addEventListener('DOMContentLoaded', (e) => {
   initializeGame();
 })
+
 //keep track of words they got wrong
-//if you click correct automatically goes to the next one. 
+// create an array - give it a name
+// push the percentages into the array when the game finishes 
+// window.localStorage.setItem(nameArray)
+// window.localStorage.getItem(nameArray)
+// for loop to iterate through scores
+
+//5hrs 3hrs
+
