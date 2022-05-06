@@ -27,10 +27,6 @@ let currentAnswer = '';
 let incorrectWords = [];
 let userPercentageScores = [];
 
-let restartGame = () => {
-
-}
-
 let englishTranslations = () => Object.keys(words)
 
 const initializeGame = () => generateNewWord();
@@ -89,7 +85,6 @@ let percentage = () => {
 const currentWrongWord = () => {
   let currentWrongWord = term.textContent
   incorrectWords.push(currentWrongWord)
-  console.log(currentWord)
 }
 
 flipContainer.addEventListener('click', (e) => {
@@ -111,7 +106,6 @@ const setWinningMessage = () => {
     localStorage.setItem('scores', arr)
     // let allCachedScores = localStorage.getItem('scores')
   }
-  console.log(cachedScores)
   const winningMsg = `Congratulations you got the top score of: ${numberCorrectScore} and incorrect: ${numberIncorrectScore}. The words you got wrong were: ${incorrectWords}. Your score is ${scores}`;
   setWordContent(winningMsg)
 }
