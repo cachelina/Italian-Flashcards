@@ -1,11 +1,10 @@
->Pre-load your app with some data, and let the user flip through them quickly (back or front), and use the keyboard flip the card, and to mark whether they got it right or not. Track which cards were incorrect, and re-display them until the user gets them right!
-
 # App Images 
-![alt text](frontside.png)
 
-![alt text](/Users/maria/seir/projects/Italian-Flashcards/images/backside.png)
+![frontside](https://user-images.githubusercontent.com/102118452/167204646-0c754fb6-5ab3-4d1d-82c8-920d2f419cd1.png)
 
-![alt text](/Users/maria/seir/projects/Italian-Flashcards/images/results.png)
+![backside](https://user-images.githubusercontent.com/102118452/167204722-a5eac657-7f20-4d94-aff1-788a69b5c093.png)
+
+![results](https://user-images.githubusercontent.com/102118452/167204729-e7fcf3f0-04f9-4b63-a69a-1da2d030f0b3.png)
 
 ## Installation Instructions
 > Open and play game in Chrome.
@@ -24,7 +23,7 @@
 >As a user start new game
 
 #### Wireframes
-![alt text](/Users/maria/seir/projects/Italian-Flashcards/images/wireframe.png)
+![wireframe](https://user-images.githubusercontent.com/102118452/167204753-705fe167-a36e-4c10-993f-e399d2b08e33.png)
 
 #### Hurdles
 >Adding a local storage component was more difficult than anticipated. 
