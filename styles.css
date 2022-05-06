@@ -1,11 +1,19 @@
 body {
   background-color: aliceblue;
+  position: absolute;
+  top: 45.87px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  backface-visibility: hidden;
 }
+
 #title {
   text-align: center;
   font-family: garamond;
   font-style: italic;
-  margin: 120px 300px 30px 300px;
+  margin: 0 auto;
+  font-size: 37px;
 }
 
 .flashcard-screen {
@@ -18,7 +26,11 @@ body {
   text-align: center;
   text-transform: capitalize;
   font-family: Verdana;
-  margin-left: 440px;
+  margin-left: 500px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  backface-visibility: hidden;
 }
 
 #term {
@@ -29,11 +41,24 @@ body {
   backface-visibility: hidden;
   position: absolute;
   width: 300px;
+  display: flex;
   height: 330px;
   padding-top: 10px;
+  font-size: 28px;  
+}
+
+#term > h3 {
+  margin: 0 auto;
+  align-self: center;
+}
+
+.card-face > h3 {
+  margin: 0 auto;
+  align-self: center;
 }
 
 #translation {
+  display: flex;
   border: solid 5px #00CED1;
   background-color: white;
   border-radius: 50px;
@@ -42,8 +67,8 @@ body {
   position: absolute;
   width: 300px;
   height: 330px;
-  padding-top: 10px;
-
+  will-change: transform;
+  font-size: 28px;
 }
 
 .flip-container {
@@ -53,6 +78,7 @@ body {
   cursor: pointer;
   transform-origin: center right;
   transition: transform 1s;
+  will-change: transform;
 }
 
 .flip-card {
@@ -62,6 +88,7 @@ body {
 .card-face {
   height: 100%;
   width: 100%;
+  
 }
 
 .buttons {
@@ -89,3 +116,5 @@ body {
   color: white;
   background-color: #00CED1;
 }
+
+/* max width 1082

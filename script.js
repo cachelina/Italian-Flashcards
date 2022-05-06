@@ -19,11 +19,6 @@ let term = document.getElementById('term')
 let flipContainer = document.getElementsByClassName('flip-container')[0]
 let italianTranslation = document.getElementById("translation")
 
-let englishTranslations = () => Object.keys(words)
-
-const initializeGame = () => generateNewWord();
-
-let data = Object.values(words)
 let numberCorrectScore = 0; 
 let numberIncorrectScore = 0;
 let requiredToWinScore = Object.keys(words).length;
@@ -31,6 +26,16 @@ let currentWord = '';
 let currentAnswer = ''; 
 let incorrectWords = [];
 let userPercentageScores = [];
+
+let restartGame = () => {
+
+}
+
+let englishTranslations = () => Object.keys(words)
+
+const initializeGame = () => generateNewWord();
+
+let data = Object.values(words)
 
 function getRandomWord() {
   if (Object.keys(words).length === 0) {
@@ -111,25 +116,39 @@ const setWinningMessage = () => {
   setWordContent(winningMsg)
 }
 
-const showWinningMessage = () => alert('The game will restart automatically!');
+let answer = '';
 
-const reloadGame = () => {
-  setTimeout(function () {
-    window.location.reload(true)
-  }, 15000)
+const reloadGame = () => window.location.reload(true);
+
+const promptUserToReloadGame = () => {
+  answer = prompt('Would you like to play again? Enter Yes or No')
+  answer = answer ? answer.toLowerCase() : answer;
+  if (answer && answer.toLowerCase() === 'yes') {
+    reloadGame();
+    return null; 
+  }
+  return null; 
 }
+
+const sleep = (ms) => new Promise((resolve, reject) => setTimeout(resolve, ms));
+let shouldShowPrompt = true; 
 
 correctButton.addEventListener('click', e => {
   if (wonGame()) {
-    showWinningMessage();
-    reloadGame();
+    setWinningMessage();
+    if (shouldShowPrompt === true) {
+      sleep(4000).then(() => promptUserToReloadGame());
+      shouldShowPrompt = false;
+    }
     return null
   }
   numberCorrectScore += 1
   if (wonGame()) {
-    showWinningMessage();
     setWinningMessage();
-    reloadGame();
+    if (shouldShowPrompt === true) {
+      sleep(4000).then(() => promptUserToReloadGame());
+      shouldShowPrompt = false;
+    }
     return null
   }
   removeWord();
@@ -154,12 +173,4 @@ window.addEventListener('DOMContentLoaded', (e) => {
   initializeGame();
 })
 
-//keep track of words they got wrong
-// create an array - give it a name
-// push the percentages into the array when the game finishes 
-// window.localStorage.setItem(nameArray)
-// window.localStorage.getItem(nameArray)
-// for loop to iterate through scores
-
-//5hrs 3hrs
 
