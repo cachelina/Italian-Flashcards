@@ -1,7 +1,7 @@
 >Pre-load your app with some data, and let the user flip through them quickly (back or front), and use the keyboard flip the card, and to mark whether they got it right or not. Track which cards were incorrect, and re-display them until the user gets them right!
 
 # App Images 
-![alt text](/Users/maria/seir/projects/Italian-Flashcards/images/frontside.png)
+![alt text](frontside.png)
 
 ![alt text](/Users/maria/seir/projects/Italian-Flashcards/images/backside.png)
 
