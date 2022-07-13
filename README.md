@@ -31,11 +31,11 @@
 >Redirecting users to results page would take some time and could possibly cause glitches I may not have time to address. Therefore, I chose not to display the percentage scores from previous sessions on the page. You can console log them tho ;)
 >Backspace visibility didn't work in safari. 
 
-####### Languages 
+#### Languages 
 > HTML, CSS and Javascript.
 
-###### Databases
+#### Databases
 > None.
 
-#####Frameworks
+#### Frameworks
 > None.
